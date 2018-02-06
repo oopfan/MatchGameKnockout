@@ -14,10 +14,10 @@
 </head>
 <body>
   <div>
-    <div class="you-won" game-state="gameState">
+    <div class="you-won">
       <span>You're a Winner!</span>
     </div>
-    <div class="match-game container" game-state="gameState">
+    <div class="match-game container">
       <div class="row">
         <div class="col-md-3">
           <h1>Match Game (Knockout)</h1>
@@ -38,7 +38,7 @@
         </div>
         <div class="col-md-9">
           <div class="row" data-bind="foreach: gameState.cards">
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 card" data-bind="style: style">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 card" data-bind="style: style, click: $parent.cardClick">
               <span data-bind="text: spanValue"></span>
             </div>
             <!--<card ng-repeat="card in gameState.cards" ng-click="cardClick(card, $index)" card-value="{{card.cardValue}}" card-state="{{card.cardState}}"></card>-->
