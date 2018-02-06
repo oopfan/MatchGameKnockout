@@ -13,14 +13,14 @@
   <link rel="icon" href="./favicon.ico" type="image/x-icon">
 </head>
 <body>
-  <div>
-    <div class="you-won">
+  <div id="game1">
+    <div class="you-won" data-bind="style: wonStyle">
       <span>You're a Winner!</span>
     </div>
-    <div class="match-game container">
+    <div class="match-game container" data-bind="style: gameStyle">
       <div class="row">
         <div class="col-md-3">
-          <h1>Match Game (Knockout)</h1>
+          <h1>Match Game (Knockout) Game 1</h1>
           <h2>Rules</h2>
           <p>
             Click on a card to reveal the number on the other side. Click on a second
@@ -37,11 +37,43 @@
           </p>
         </div>
         <div class="col-md-9">
-          <div class="row" data-bind="foreach: gameState.cards">
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 card" data-bind="style: style, click: $parent.cardClick">
+          <div class="row" data-bind="foreach: cards">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 card" data-bind="style: cardStyle, click: $parent.cardClick">
               <span data-bind="text: spanValue"></span>
             </div>
-            <!--<card ng-repeat="card in gameState.cards" ng-click="cardClick(card, $index)" card-value="{{card.cardValue}}" card-state="{{card.cardState}}"></card>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="game2">
+    <div class="you-won" data-bind="style: wonStyle">
+      <span>You're a Winner!</span>
+    </div>
+    <div class="match-game container" data-bind="style: gameStyle">
+      <div class="row">
+        <div class="col-md-3">
+          <h1>Match Game (Knockout) Game 2</h1>
+          <h2>Rules</h2>
+          <p>
+            Click on a card to reveal the number on the other side. Click on a second
+            card to try and find a match to the first. If you succeed, the pair will
+            be removed from play. If not, try again!
+          </p>
+          <h2>How To Win</h2>
+          <p>You win when all pairs have been found.</p>
+          <p>
+            <button type="button" className="btn btn-default" data-bind="click: restartGame">Restart Game</button>
+          </p>
+          <p>
+            <button type="button" className="btn btn-default" data-bind="click: newGame">New Game</button>
+          </p>
+        </div>
+        <div class="col-md-9">
+          <div class="row" data-bind="foreach: cards">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 card" data-bind="style: cardStyle, click: $parent.cardClick">
+              <span data-bind="text: spanValue"></span>
+            </div>
           </div>
         </div>
       </div>
